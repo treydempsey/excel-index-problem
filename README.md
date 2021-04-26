@@ -20,23 +20,27 @@ we reach 0.
 
 To handle the fact that 1 == A, we subtract one when taking the modulus. And to handle the
 subsequent digits we also subtract the modulus from the current number before we divide it
-by 26. This has the effect of removing up to 1 unit of the current digit from the over all
-and ensuring the remaining digits are correct. For example 26 because of how Excel counts
-where there are no zeros we have:
+by 26. This has the effect of removing up to 1 unit of 26 from the over all sum ensuring the
+remaining digits are correct. For example 26 because of how Excel counts where there are no
+zeros we have:
 
+```
 0: (26 - 1) % 26 = 25
 0: (26 - 25) / 26 = 0
+```
 
-thus ensuring our answer is Z not AZ.
+giving our answer of Z.
 
 Another example 704:
 
+```
 0: (704 - 1) % 26 = 1  -> B
 0: (704 - 1) / 26 = 27
 1:  (27 - 1) % 26 = 0  -> A
 1:  (27 - 0) / 26 = 1
 2:   (1 - 1) % 26 = 0  -> A
 2:   (1 - 0) / 26 = 0
+```
 
 giving our answer AAB.
 
